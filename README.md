@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://via.placeholder.com/800x300/1a1a2e/ffffff?text=AI+Car+Racing+-+PPO+Autopilot" alt="AI Car Racing Banner" width="100%" />
+  <img src="https://placehold.co/800x300/1a1a2e/ffffff?text=AI+Car+Racing+-+PPO+Autopilot" alt="AI Car Racing Banner" width="100%" />
   
   <h1>🏎️ AI Car Racing - PPO Autopilot 🤖</h1>
   
@@ -8,9 +8,9 @@
   </p>
 
   <p>
-    <a href="https://pytorch.org/"><img src="https://img-shields.vercel.app/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white" alt="PyTorch" /></a>
-    <a href="https://gymnasium.farama.org/"><img src="https://img-shields.vercel.app/badge/Gymnasium-000000.svg?style=for-the-badge&logo=OpenAI&logoColor=white" alt="Gymnasium" /></a>
-    <a href="https://www.pygame.org/"><img src="https://img-shields.vercel.app/badge/Pygame-2C9A14.svg?style=for-the-badge&logo=Python&logoColor=white" alt="Pygame" /></a>
+    <a href="https://pytorch.org/"><img src="https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white" alt="PyTorch" /></a>
+    <a href="https://gymnasium.farama.org/"><img src="https://img.shields.io/badge/Gymnasium-000000.svg?style=for-the-badge&logo=OpenAI&logoColor=white" alt="Gymnasium" /></a>
+    <a href="https://www.pygame.org/"><img src="https://img.shields.io/badge/Pygame-2C9A14.svg?style=for-the-badge&logo=Python&logoColor=white" alt="Pygame" /></a>
   </p>
 </div>
 
