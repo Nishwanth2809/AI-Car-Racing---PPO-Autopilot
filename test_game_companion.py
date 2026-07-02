@@ -25,8 +25,9 @@ DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 # ======================== PYGAME INIT ========================
 
 pygame.init()
-PANEL_W, PANEL_H = 320, 260
-screen = pygame.display.set_mode((PANEL_W, PANEL_H))
+GAME_W, GAME_H = 600, 400
+PANEL_W, PANEL_H = 320, GAME_H
+screen = pygame.display.set_mode((GAME_W + PANEL_W, GAME_H))
 pygame.display.set_caption("AI Car Racing - Companion")
 
 # Fonts
@@ -47,10 +48,10 @@ GREEN = (80, 255, 80)
 
 # ======================== LOAD ENV & MODEL ========================
 
-env = gym.make("CarRacing-v3", render_mode="human")
+env = gym.make("CarRacing-v3", render_mode="rgb_array")
 
 model = ActorCritic(input_channels=4).to(DEVICE)
-checkpoint = torch.load("car_racing_ppo.pth", map_location=DEVICE)
+checkpoint = torch.load("car_racing_best.pth", map_location=DEVICE)
 if isinstance(checkpoint, dict) and "model_state" in checkpoint:
     model.load_state_dict(checkpoint["model_state"])
 else:
@@ -193,8 +194,18 @@ while running:
     state = frame_stack.step(obs)
     total_reward += reward
 
+    # Draw Game Frame
+    frame = env.render()
+    if frame is not None:
+        # Swap axes from (H, W, C) to (W, H, C) for Pygame
+        frame_surface = pygame.surfarray.make_surface(frame.swapaxes(0, 1))
+        # Scale if necessary, but default CarRacing-v3 is usually 600x400
+        frame_surface = pygame.transform.scale(frame_surface, (GAME_W, GAME_H))
+        screen.blit(frame_surface, (0, 0))
+
     # Draw HUD
-    draw_hud(screen, current_action, total_reward, episode_num)
+    hud_subsurface = screen.subsurface(pygame.Rect(GAME_W, 0, PANEL_W, PANEL_H))
+    draw_hud(hud_subsurface, current_action, total_reward, episode_num)
     pygame.display.flip()
 
     if done or truncated:
