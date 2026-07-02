@@ -1,0 +1,8 @@
+gymnasium[box2d]
+torch
+numpy
+opencv-python
+pygame
+pandas
+matplotlib
+setuptools

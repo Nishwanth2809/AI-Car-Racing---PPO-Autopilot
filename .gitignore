@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+
+# Model weights
+*.pth
+
+# Training data
+training_log.csv
+training_curve.png
+
+# IDEs
+.vscode/
+.idea/
